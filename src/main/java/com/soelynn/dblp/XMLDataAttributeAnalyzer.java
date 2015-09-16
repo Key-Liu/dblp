@@ -1,6 +1,8 @@
 package com.soelynn.dblp;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 import javax.xml.parsers.SAXParser;
@@ -28,14 +30,14 @@ public class XMLDataAttributeAnalyzer {
 				DblpElement element = DblpElement.getDblpElement(element_name);
 				if (element != null) {
 					elementBegan = element;
-				}
-				else if(elementBegan != null) {
+				} else if (elementBegan != null) {
 					HashMap<String, Integer> attributesCountMap = attributesMap.get(elementBegan);
-					if(attributesCountMap == null) {
+					if (attributesCountMap == null) {
 						attributesCountMap = new HashMap<String, Integer>();
 					}
-					
-					int attributeCount = attributesCountMap.containsKey(element_name)?attributesCountMap.get(element_name):0;
+
+					int attributeCount = attributesCountMap.containsKey(element_name)
+							? attributesCountMap.get(element_name) : 0;
 					attributeCount++;
 					attributesCountMap.put(element_name, attributeCount);
 					attributesMap.put(elementBegan, attributesCountMap);
@@ -58,32 +60,53 @@ public class XMLDataAttributeAnalyzer {
 
 			public void endDocument() throws SAXException {
 				
-				Set<String> commonAttributes = null;
+				List<String> commonAttributes = Arrays.asList("ee", "year", "author", "title", "url");
 				
-				for(DblpElement element: attributesMap.keySet()) {
+				System.out.println("|Element|Attribute|Count|");
+				System.out.println("|---|---|---|");
+
+				for (DblpElement element : attributesMap.keySet()) {
+					System.out.println("|`" + element + "`|");
+
 					HashMap<String, Integer> attributeCountMap = attributesMap.get(element);
-					
-					if(commonAttributes == null) {
+
+					for (String attribute : attributeCountMap.keySet()) {
+						
+						if(commonAttributes.contains(attribute)) {
+							continue;
+						}
+						
+						System.out.println("| |`" + attribute + "`|" + attributeCountMap.get(attribute) + "|");
+					}
+				}
+			}
+
+			private void printCommonAttributes() {
+				Set<String> commonAttributes = null;
+
+				for (DblpElement element : attributesMap.keySet()) {
+					HashMap<String, Integer> attributeCountMap = attributesMap.get(element);
+
+					if (commonAttributes == null) {
 						commonAttributes = attributeCountMap.keySet();
 					}
-					
+
 					commonAttributes.retainAll(attributeCountMap.keySet());
 				}
-				
+
 				System.out.println(commonAttributes);
-				
 			}
-			
+
 			private void printElementAndAttributeCountInMarkDownFormat() {
 				System.out.println("|Element|Attribute|Count|");
 				System.out.println("|---|---|---|");
-				
-				for(DblpElement element: attributesMap.keySet()) {
+
+				for (DblpElement element : attributesMap.keySet()) {
 					System.out.println("|`" + element + "`|");
-					
+
 					HashMap<String, Integer> attributeCountMap = attributesMap.get(element);
-					
-					for(String attribute: attributeCountMap.keySet()) {
+
+					for (String attribute : attributeCountMap.keySet()) {
 						System.out.println("| |`" + attribute + "`|" + attributeCountMap.get(attribute) + "|");
 					}
 				}
