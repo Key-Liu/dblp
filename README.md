@@ -1,5 +1,11 @@
 # DBLP
 
+## Rules
+
+1. You cannot push directly to this main repo.
+2. Fork this project to your repository
+3. Then create a pull request to this repo. I will do the code review.
+
 ## Setup
 1. Put `dblp.dtd` and `dblp.xml` under the folder `src/main/resources/`
 2. Open Eclipse
