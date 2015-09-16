@@ -18,21 +18,15 @@
 `ee`, `year`, `author`, `title`, `url`
 
 ### Attributes List of DBLP data with counts
-
 |Element|Attribute|Count|
 |---|---|---|
 |`article`|
-| |`ee`|1321700|
 | |`tt`|15|
 | |`sub`|10616|
 | |`note`|1378|
 | |`editor`|31|
-| |`year`|1335747|
-| |`author`|3594757|
 | |`i`|16448|
-| |`title`|1335753|
 | |`cdrom`|4003|
-| |`url`|1335196|
 | |`sup`|7138|
 | |`volume`|1335034|
 | |`number`|1135761|
@@ -44,17 +38,12 @@
 | |`crossref`|1578|
 | |`booktitle`|223|
 |`inproceedings`|
-| |`ee`|1767587|
 | |`tt`|3|
 | |`sub`|1306|
 | |`note`|124|
 | |`editor`|13|
-| |`year`|1669343|
-| |`author`|4963360|
 | |`i`|4797|
-| |`title`|1669343|
 | |`cdrom`|8922|
-| |`url`|1669342|
 | |`sup`|3285|
 | |`number`|379|
 | |`pages`|1587529|
@@ -63,13 +52,8 @@
 | |`crossref`|1617789|
 | |`booktitle`|1669343|
 |`phdthesis`|
-| |`ee`|3665|
 | |`note`|9656|
-| |`year`|6961|
-| |`author`|6963|
 | |`isbn`|2454|
-| |`title`|6961|
-| |`url`|3608|
 | |`volume`|10|
 | |`number`|3|
 | |`pages`|5335|
@@ -78,28 +62,18 @@
 | |`series`|12|
 | |`publisher`|11|
 |`www`|
-| |`ee`|1|
 | |`editor`|22|
 | |`note`|10539|
-| |`year`|17|
-| |`author`|1635022|
 | |`cite`|111|
-| |`title`|1611675|
 | |`booktitle`|1|
 | |`crossref`|239|
-| |`url`|29572|
 |`book`|
-| |`ee`|5660|
 | |`editor`|2356|
 | |`note`|24|
 | |`sub`|3|
-| |`year`|12097|
-| |`author`|18163|
 | |`isbn`|12830|
 | |`i`|2|
-| |`title`|12097|
 | |`cdrom`|3|
-| |`url`|2238|
 | |`sup`|10|
 | |`volume`|2396|
 | |`pages`|9370|
@@ -110,24 +84,14 @@
 | |`cite`|3319|
 | |`booktitle`|1014|
 |`mastersthesis`|
-| |`ee`|3|
-| |`year`|9|
 | |`school`|9|
-| |`author`|9|
-| |`title`|9|
-| |`url`|4|
 |`proceedings`|
-| |`ee`|19285|
 | |`editor`|63517|
 | |`note`|189|
 | |`sub`|1|
 | |`address`|3|
-| |`year`|27896|
-| |`author`|4|
 | |`isbn`|23662|
 | |`i`|4|
-| |`title`|27897|
-| |`url`|27834|
 | |`sup`|55|
 | |`volume`|13242|
 | |`number`|15|
@@ -139,16 +103,11 @@
 | |`booktitle`|27430|
 | |`crossref`|16|
 |`incollection`|
-| |`ee`|33024|
 | |`sub`|5|
 | |`note`|22|
 | |`chapter`|2|
-| |`year`|35241|
-| |`author`|59891|
 | |`i`|95|
-| |`title`|35241|
 | |`cdrom`|53|
-| |`url`|35238|
 | |`sup`|37|
 | |`number`|20|
 | |`pages`|31434|
