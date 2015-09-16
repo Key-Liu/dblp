@@ -2,10 +2,10 @@
 
 # Requirement Analysis
 
-# Publication Attributes (Common Attributes)
+## Publication Attributes (Common Attributes)
 `ee`, `year`, `author`, `title`, `url`
 
-# Attributes List of DBLP data with counts
+## Attributes List of DBLP data with counts
 
 |Element|Attribute|Count|
 |---|---|---|
