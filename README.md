@@ -1,11 +1,23 @@
 # DBLP
 
-# Requirement Analysis
+## Setup
+1. Put `dblp.dtd` and `dblp.xml` under the folder `src/main/resources/`
+2. Open Eclipse
+3. Go to File -> Import
+4. Select `Existing Maven Project`
+5. Select the root directory of the dblp project
+6. When you want to run SAX parser on `dblp.xml`, we must remove the `entityExpansionLimit`.
+7. Go to Run -> Run Configuration
+8. Select the `Arguments` tab
+9. Paste `-DentityExpansionLimit=0` in VM arguments.
+10. Tada!
 
-## Publication Attributes (Common Attributes)
+## Requirement Analysis
+
+### Publication Attributes (Common Attributes)
 `ee`, `year`, `author`, `title`, `url`
 
-## Attributes List of DBLP data with counts
+### Attributes List of DBLP data with counts
 
 |Element|Attribute|Count|
 |---|---|---|
