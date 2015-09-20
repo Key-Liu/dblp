@@ -8,7 +8,7 @@
 
 ## Setup
 1. Put `dblp.dtd` and `dblp.xml` under the folder `src/main/resources/`
-2. Open Eclipse
+2. Open `Eclipse` (You can download it [here](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/marsr))
 3. Go to `File` -> `Import`
 4. Select `Existing Maven Project`
 5. Select the root directory of the dblp project
