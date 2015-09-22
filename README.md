@@ -121,3 +121,15 @@
 | |`publisher`|91|
 | |`crossref`|32221|
 | |`booktitle`|35241|
+
+### Key Patterns
+|Element|Key|
+|---|---|
+|`article`| `reference` `persons` `dblpnote` `conf` `journals` `tr` |
+|`book`| `reference` `persons` `books` `series` `conf` `phd` `tr` |
+|`incollection`| `reference` `books` `series` `conf` `journals` |
+|`inproceedings`| `persons` `series` `conf` `journals` |
+|`proceedings`| `series` `conf` `journals` `tr` |
+|`www`| `persons` `www` `homepages` |
+|`phdthesis`| `books` `phd` |
+|`mastersthesis`| `ms` `phd` |
