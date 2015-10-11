@@ -28,8 +28,12 @@ public class XMLDataAttributeAnalyzer {
 			private DblpElement elementBegan = null;
 
 			// Tag tracking variables
+			private boolean isMasterThesisElement = false;
+			private boolean isMasterThesisAttribute = false;
 			private boolean isProceedingElement = false;
 			private boolean isProceedingElement_title = false;
+			
+			private String key;
 
 			public void startElement(String uri, String localName, String element_name, Attributes attributes)
 					throws SAXException {
@@ -56,10 +60,9 @@ public class XMLDataAttributeAnalyzer {
 					keysMap.put(element, key_mapping);
 
 					switch (element) {
-					case PROCEEDINGS:
-						if (subkeys[0].equals("conf")) {
-							isProceedingElement = true;
-						}
+					case MASTERTHESIS:
+//						Syprintln("key : " + attributes.getValue("key"));
+						isMasterThesisElement = true;
 						break;
 					default:
 						break;
@@ -80,9 +83,14 @@ public class XMLDataAttributeAnalyzer {
 
 					// Tag tracking logic
 					if (isProceedingElement) {
-						if (element_name.equals("title")) {
-							isProceedingElement_title = true;
-						}
+//						if (element_name.equals("crossref")) {
+//							isProceedingElement_title = true;
+//						}
+						System.out.println(element_name);
+					}
+					else if(isMasterThesisElement) {
+						isMasterThesisAttribute = true;
+						System.out.print(element_name + " : ");
 					}
 				}
 			}
@@ -93,18 +101,33 @@ public class XMLDataAttributeAnalyzer {
 				if (elementBegan == element) {
 					elementBegan = null;
 				}
+				
+				if(isMasterThesisAttribute) {
+					isMasterThesisAttribute = false;
+					return;
+				}
+				
+				if(isMasterThesisElement) {
+					isMasterThesisElement = false;
+					return;
+				}
 
 			}
 
 			public void characters(char ch[], int start, int length) throws SAXException {
 
-				if (isProceedingElement_title) {
-					String title = new String(ch, start, length);
-					System.out.println(title);
-
-					isProceedingElement = false;
-					isProceedingElement_title = false;
+				if(isMasterThesisAttribute) {
+					System.out.println(new String(ch, start, length));
 				}
+				
+//				if (isProceedingElement_title) {
+//					String title = new String(ch, start, length);
+//					System.out.println(key);
+//					System.out.println("\t" + title);
+//
+//					isProceedingElement = false;
+//					isProceedingElement_title = false;
+//				}
 
 			}
 
@@ -152,11 +175,6 @@ public class XMLDataAttributeAnalyzer {
 					HashMap<String, Integer> attributeCountMap = attributesMap.get(element);
 
 					for (String attribute : attributeCountMap.keySet()) {
-
-						if (commonAttributes.contains(attribute)) {
-							continue;
-						}
-
 						System.out.println("| |`" + attribute + "`|" + attributeCountMap.get(attribute) + "|");
 					}
 				}
