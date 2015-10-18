@@ -16,4 +16,5 @@ public enum PublicationType {
 	public int getId() {
 		return id;
 	}
+	
 }

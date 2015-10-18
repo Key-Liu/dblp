@@ -16,6 +16,10 @@ public class PersonName {
 		this.name = name;
 	}
 	
+	public int getPnId() {
+		return pnid;
+	}
+	
 	public int getPid() {
 		return pid;
 	}

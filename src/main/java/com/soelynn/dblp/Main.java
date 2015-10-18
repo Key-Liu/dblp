@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -15,7 +14,6 @@ import java.util.HashMap;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -280,7 +278,9 @@ public class Main {
 					switch (element) {
 					case WWW:
 						if (isWWWElement) {
-							persons.add(author_buffer);
+							if(!author_buffer.getNames().isEmpty()) {
+								persons.add(author_buffer);
+							}
 							author_buffer = null;
 
 							isWWWElement = false;
@@ -502,6 +502,10 @@ public class Main {
 					for (String name : person.getNames()) {
 						PersonName personName = new PersonName(person.getId(), name);
 						personNameList.add(personName);
+						
+						if(person.getPrimaryname_id() == null) {
+							person.setPrimaryname_id(personName.getPnId());
+						}
 						
 						// Build the mapping of name and id.
 						ArrayList<Integer> id_list = person_name_id_mapping.get(name);

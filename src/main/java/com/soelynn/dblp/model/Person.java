@@ -11,11 +11,13 @@ public class Person {
 	
 	private int id;
 	private List<String> names;
+	private Integer primaryname_id;
 	private String title;
 	
 	public Person() {
 		this.id = id_counter++;
 		this.names = new ArrayList<String>();
+		primaryname_id = null;
 	}
 	
 	public int getId() {
@@ -26,6 +28,14 @@ public class Person {
 		this.id = id;
 	}
 	
+	public Integer getPrimaryname_id() {
+		return primaryname_id;
+	}
+
+	public void setPrimaryname_id(Integer primaryname_id) {
+		this.primaryname_id = primaryname_id;
+	}
+
 	public String getTitle() {
 		return StringEscapeUtils.escapeCsv(title);
 	}
@@ -47,11 +57,11 @@ public class Person {
 	}
 	
 	public static String getColumnNameList() {
-		return "pid,title\n";
+		return "pid,title,primaryname_id\n";
 	}
 	
 	public String toString() {
-		return String.format("%d,%s\n", id, getTitle());
+		return String.format("%d,%s,%d\n", id, getTitle(), getPrimaryname_id());
 	}
 	
 }
